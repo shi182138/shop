@@ -1,0 +1,88 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        - id: product_route
+          uri: lb://shop-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: coupon_route
+          uri: lb://shop-coupon
+          predicates:
+            - Path=/api/coupon/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: third_party_route
+          uri: lb://shop-third-party
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/thirdparty/(?<segment>.*),/$\{segment}
+
+        - id: member_route
+          uri: lb://shop-member
+          predicates:
+            - Path=/api/member/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: ware_route
+          uri: lb://shop-ware
+          predicates:
+            - Path=/api/ware/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: admin_route
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
+
+        - id: shop_host_route
+          uri: lb://shop-product
+          predicates:
+            - Host=gulimao.com,item.gulimao.com
+
+        - id: shop_search_route
+          uri: lb://shop-search
+          predicates:
+            - Host=search.gulimao.com
+
+
+        - id: gulimall_auth_route
+          uri: lb://shop-auth-server
+          predicates:
+            - Host=auth.gulimao.com
+        - id: gulimall_cart_route
+          uri: lb://shop-cart
+          predicates:
+            - Host=cart.gulimao.com
+
+        - id: gulimall_order_route
+          uri: lb://shop-order
+          predicates:
+            - Host=order.gulimao.com
+        - id: gulimall_member_route
+          uri: lb://shop-member
+          predicates:
+            - Host=member.gulimao.com
+        - id: gulimall_seckill_route
+          uri: lb://shop-seckill
+          predicates:
+            - Host=seckill.gulimao.com
+
+  application:
+    name: shop-gateway
+
+
+server:
+  port: 88

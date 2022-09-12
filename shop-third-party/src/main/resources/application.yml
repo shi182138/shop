@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+  application:
+    name: shop-third-party
+
+
+server:
+  port: 30000
+
+tenxuncloud:
+  sms:
+    sdk-app-id: 1400728799
+    sign-name: 为润民服务个人公众号
+    template-id: 1523143
+    secret-id: AKIDwiDRP8amgJyMUQAeuvf8LK4PgmgNoztW
+    secret-key: RcaNzSmqWzFKEvb9SZT8bs6GDyYw72jA

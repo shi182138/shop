@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.85.132:3306/shop_pms
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+  application:
+    name: shop-search
+  thymeleaf:
+    cache: false
+
+server:
+  port: 12000
+
+logging:
+  level:
+    com.example.shop: error
+
+
+

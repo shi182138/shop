@@ -21,6 +21,15 @@
         <module>shop-order</module>
         <module>shop-member</module>
         <module>shop-coupon</module>
+        <module>shop-common</module>
+        <module>renren-generator</module>
+        <module>renren-fast</module>
+        <module>shop-search</module>
+        <module>shop-third-party</module>
+        <module>shop-gateway</module>
+        <module>shop-auth-server</module>
+        <module>shop-cart</module>
+        <module>shop-seckill</module>
     </modules>
 
 </project>
